@@ -14,8 +14,7 @@ export function renderPoll(question, answerOne, answerTwo, votesOne, votesTwo){
     currentPoll.append(currentQuestion, answersEl);
     answersEl.append(answerOneEl, answerTwoEl);
 
-    // currentPoll.classList.add('box-sub');
-    // answersEl.classList.add('');
+   
 
     return currentPoll;
 }

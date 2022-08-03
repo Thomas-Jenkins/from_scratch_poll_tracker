@@ -27,6 +27,21 @@ let answerOne = 0;
 let answerTwo = 0;
 
 const pastPolls = [];
+function setStateDisabled() {
+    archivePoll.disabled = true;
+    votesOneTallyUp.disabled = true;
+    votesOneTallyDown.disabled = true;
+    votesTwoTallyUp.disabled = true;
+    votesTwoTallyDown.disabled = true;
+}
+function setStateEnabled() {
+    archivePoll.disabled = false;
+    votesOneTallyUp.disabled = false;
+    votesOneTallyDown.disabled = false;
+    votesTwoTallyUp.disabled = false;
+    votesTwoTallyDown.disabled = false;
+}
+setStateDisabled();
 
 submitPollButtonEl.addEventListener('click', () => {
     questionContent = questionInput.value;
@@ -37,7 +52,9 @@ submitPollButtonEl.addEventListener('click', () => {
     answerOneInput.value = '';
     answerTwoInput.value = '';
     
-    displayCurrentPoll();    
+    displayCurrentPoll(); 
+    setStateEnabled();
+    submitPollButtonEl.disabled = true;
 });
 votesOneTallyUp.addEventListener('click', () => {
     answerOne++;
@@ -104,6 +121,9 @@ archivePoll.addEventListener('click', () => {
 
 
     displayCurrentPoll();
+    setStateDisabled();
+    submitPollButtonEl.disabled = false;
+    // archivePoll.disabled = true;
 });
 
 function displayAllPolls() {
@@ -112,9 +132,6 @@ function displayAllPolls() {
         const pollArchive = renderPoll(poll.questionContent, poll.answerOneContent, poll.answerTwoContent, poll.answerOne, poll.answerTwo);
         archiveEl.append(pollArchive);
         pollArchive.classList.add('archive-box');
-
-         // currentPoll.classList.add('box-sub');
-    // answersEl.classList.add('');
     }
 }
     
