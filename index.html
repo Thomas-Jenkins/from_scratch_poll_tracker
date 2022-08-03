@@ -30,9 +30,9 @@
             <div id="current-poll" class="box-sub">
                 <h1>Current Poll</h1>
                 <div id="current-question">
-                    <h3 id="question-display">Question:</h3>
-                    <p id="current-answer-one">Answer One: <span id="votes-one">0</span></p>
-                    <p id="current-answer-two">Answer Two: <span id="votes-two">0</span></p>
+                    <!-- <h3 id="question-display"></h3>
+                    <p id="current-answer-one"></p>
+                    <p id="current-answer-two"></p> -->
                 </div>
             </div>
 <!-- Div for holding answer Inputs -->
@@ -59,19 +59,19 @@
                 <div id="answer-input-box">
                     <div>
                         <h2>Answer One</h2>
-                        <input id="answer-one-input" type="text" placeholder="Answer One">
+                        <input name="answer-one" id="answer-one-input" type="text" placeholder="Answer One">
                     </div>
                     <div>
                         <h2>Answer Two</h2>
-                        <input id="answer-two-input" type="text" placeholder="Answer Two">
+                        <input name="answer-two" id="answer-two-input" type="text" placeholder="Answer Two">
                     </div>
                 </div>
                 <div>
-                    <button>Submit Poll for Tracking</button>
+                    <button id="submit-poll">Submit Poll for Tracking</button>
                 </div>
             </div>
         </section>
-        <section id="left" class="box-main">
+        <section id="right" class="box-main">
             <div id="past-poll" class="box-head">
                 <h1>Past Poll Records</h1>
             </div>

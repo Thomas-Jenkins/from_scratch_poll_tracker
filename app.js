@@ -1,11 +1,8 @@
-// import functions and grab DOM elements
-
+// Import Functions
+import { renderPoll } from './render-poll.js';
 // elements in the current poll div
-const questionDisplayEl = document.getElementsById('question-display');
-const answerOneDisplayEl = document.getElementById('current-answer-one');
-const answerTwoDisplayEl = document.getElementById('current-answer-two');
-const votesOneDisplayEl = document.getElementById('votes-one');
-const votesTwoDisplayEl = document.getElementById('votes-two');
+const questionDisplayEl = document.getElementById('current-question');
+
 
 // elements in the poll input div
 const votesOneTallyUp = document.getElementById('answer-one-tally-up');
@@ -18,11 +15,54 @@ const questionInput = document.getElementById('enter-question');
 const answerOneInput = document.getElementById('answer-one-input');
 const answerTwoInput = document.getElementById('answer-two-input');
   // submit button Element
-const = submitPollButtonEl = document.getElementById(''); 
+const submitPollButtonEl = document.getElementById('submit-poll'); 
 
 // let state
+let questionContent = '';
+let answerOneContent = '';
+let answerTwoContent = '';
+let answerOne = 0;
+let answerTwo = 0;
 
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+const pastPolls = [];
+
+submitPollButtonEl.addEventListener('click', () => {
+    questionContent = questionInput.value;
+    answerOneContent = answerOneInput.value;
+    answerTwoContent = answerTwoInput.value;
+
+    questionInput.value = '';
+    answerOneInput.value = '';
+    answerTwoInput.value = '';
+    console.log(questionContent);
+    displayCurrentPoll();    
+});
+votesOneTallyUp.addEventListener('click', () => {
+    answerOne++;
+    displayCurrentPoll();
+});
+votesOneTallyDown.addEventListener('click', () => {
+    answerOne--;
+    displayCurrentPoll();
+});
+votesTwoTallyUp.addEventListener('click', () => {
+    answerTwo++;
+    displayCurrentPoll();
+});
+votesTwoTallyDown.addEventListener('click', () => {
+    answerTwo--;
+    displayCurrentPoll();
+});
+
+
+function displayCurrentPoll() {
+    questionDisplayEl.textContent = '';
+    
+
+
+    const pollEl = renderPoll(questionContent, answerOneContent, answerTwoContent, answerOne, answerTwo);
+    
+    questionDisplayEl.append(pollEl);
+}
+
+
