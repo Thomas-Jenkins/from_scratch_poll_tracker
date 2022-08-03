@@ -16,6 +16,8 @@ const answerOneInput = document.getElementById('answer-one-input');
 const answerTwoInput = document.getElementById('answer-two-input');
   // submit button Element
 const submitPollButtonEl = document.getElementById('submit-poll'); 
+const archiveEl = document.getElementById('archive');
+const archivePoll = document.getElementById('archive-button');
 
 // let state
 let questionContent = '';
@@ -34,7 +36,7 @@ submitPollButtonEl.addEventListener('click', () => {
     questionInput.value = '';
     answerOneInput.value = '';
     answerTwoInput.value = '';
-    console.log(questionContent);
+    
     displayCurrentPoll();    
 });
 votesOneTallyUp.addEventListener('click', () => {
@@ -61,8 +63,55 @@ function displayCurrentPoll() {
 
 
     const pollEl = renderPoll(questionContent, answerOneContent, answerTwoContent, answerOne, answerTwo);
+
+    questionInput.value = '';
+    answerOneInput.value = '';
+    answerTwoInput.value = '';
     
     questionDisplayEl.append(pollEl);
 }
 
+// function clearCurrentQuestion() {
+//     questionContent = '';
+//     answerOneContent = '';
+//     answerTwoContent = '';
+//     answerOne = 0;
+//     answerTwo = 0;
+// }
+
+archivePoll.addEventListener('click', () => {
+  
+    let activePoll = {
+        questionContent: questionContent,
+        answerOneContent: answerOneContent,
+        answerTwoContent: answerTwoContent,
+        answerOne: answerOne,
+        answerTwo: answerTwo
+    };
+
+    
+
+    pastPolls.push(activePoll);
+    
+
+    questionContent = '';
+    answerOneContent = '';
+    answerTwoContent = '';
+    answerOne = '';
+    answerTwo = '';
+
+    displayAllPolls();
+
+
+    displayCurrentPoll();
+});
+
+function displayAllPolls() {
+    archiveEl.textContent = '';
+    for (let poll of pastPolls) {
+        const pollArchive = renderPoll(poll.questionContent, poll.answerOneContent, poll.answerTwoContent, poll.answerOne, poll.answerTwo);
+        archiveEl.append(pollArchive);
+    }
+}
+    
 
