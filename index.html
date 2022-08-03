@@ -22,6 +22,67 @@
     </header>
 
     <main>
+        <section id="left" class="box-main">
+<!-- div for displaying the current poll with the stats -->
+            <div id="heading" class="box-head">
+                <h1>Poll Tracker</h1>
+            </div>
+            <div id="current-poll" class="box-sub">
+                <h1>Current Poll</h1>
+                <div id="current-question">
+                    <!-- <h3 id="question-display"></h3>
+                    <p id="current-answer-one"></p>
+                    <p id="current-answer-two"></p> -->
+                </div>
+            </div>
+<!-- Div for holding answer Inputs -->
+            <div id="poll-input" class="box-sub">
+                <div>
+                    <button id="answer-one-tally-up">Answer One +</button>
+                </div>
+                <div>
+                    <button id="answer-two-tally-up">Answer Two +</button>
+                </div>
+                <div>
+                    <button id="answer-one-tally-down">Answer Two -</button>
+                </div>
+                <div>
+                    <button id="answer-two-tally-down">Answer Two -</button>
+                </div>   
+            </div>
+<!-- Div for holding the Poll Creation Inputs -->
+            <div id="poll-create" class="box-sub">
+                <div> 
+                    <h2>Enter your Poll Question</h2>
+                    <input id="enter-question" type="text" placeholder="Enter Question Here">
+                </div>
+                <div id="answer-input-box">
+                    <div>
+                        <h2>Answer One</h2>
+                        <input name="answer-one" id="answer-one-input" type="text" placeholder="Answer One">
+                    </div>
+                    <div>
+                        <h2>Answer Two</h2>
+                        <input name="answer-two" id="answer-two-input" type="text" placeholder="Answer Two">
+                    </div>
+                </div>
+                <div>
+                    <button id="submit-poll">Submit Poll for Tracking</button>
+                </div>
+                <div>
+                    <button id="archive-button">Archive the Current Poll</button>
+                </div>
+            </div>
+        </section>
+        <!-- section holds all archived info -->
+        <section id="right">
+            <div id="past-poll" class="box-head">
+                <h1>Past Poll Records</h1>
+            </div>
+            <div id="archive">
+
+            </div>
+        </section>
 
     </main>
 
