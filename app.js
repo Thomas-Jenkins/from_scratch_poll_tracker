@@ -111,6 +111,10 @@ function displayAllPolls() {
     for (let poll of pastPolls) {
         const pollArchive = renderPoll(poll.questionContent, poll.answerOneContent, poll.answerTwoContent, poll.answerOne, poll.answerTwo);
         archiveEl.append(pollArchive);
+        pollArchive.classList.add('archive-box');
+
+         // currentPoll.classList.add('box-sub');
+    // answersEl.classList.add('');
     }
 }
     
